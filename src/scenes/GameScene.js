@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import Player from './Player';
+import Duck from '../sprites/Duck';
 
 export default 
 class GameScene extends Phaser.Scene
@@ -78,10 +78,15 @@ duck;
 		.setScale(1)
 		this.physics.add.existing(this.ground, true)
 
-
-		this.createGuy(width);
-		this.duck = new Player({scene:this,x:width * 0.4, y:this.ground.y-500, name:'duck'});
 		this.createDave(width);
+		this.createGuy(width);
+		this.duck = new Duck({
+			scene:this,
+			x:width * 0.4, 
+			y:this.ground.y-495, 
+			name:'duck',
+			leader: this.player2});
+		
 
 		//this.createDuck(width);
 
